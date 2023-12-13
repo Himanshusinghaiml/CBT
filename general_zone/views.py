@@ -5,6 +5,10 @@ from django.contrib import messages
 from .models import *
 from companylogin.models import *
 from admin_zone.models import *
+from .serializers import CompanySerializer
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
 
 def homepage(request):
     return render(request,'homepage.html')
@@ -22,6 +26,37 @@ def comsignup(request):
         company.save()
         return JsonResponse({'success': True})     
     return JsonResponse({'success': False})  
+
+# @api_view(['POST'])
+# def SignupApi(req):
+#     if req.method == 'POST':
+#         serializer = CompanySerializer(data=req.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+#     return Response({'detail': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+@api_view(['POST'])
+def SignupApi(req):
+    if req.method == 'POST':
+        serializer = CompanySerializer(data=req.data)
+        if serializer.is_valid():
+            # Check if the email already exists
+            email = serializer.validated_data['email']
+            phone = serializer.validated_data['phone']
+            if(len(phone)!=10):
+               return Response(status=status.HTTP_400_BAD_REQUEST)
+            if Company.objects.filter(email=email).exists():
+                return Response({'detail': 'Email is already in use.'}, status=status.HTTP_400_BAD_REQUEST)
+
+            # Email is unique, save the serializer
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    return Response({'detail': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 def comLogin(request):
     try:

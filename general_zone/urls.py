@@ -12,4 +12,5 @@ urlpatterns = [
     path('courses/',views.courses,name="courses"),  
     path( 'homepage-centerlist/',views.centerlist,name="centerlist"),
     path('requestdemo/',views.request_demo,name="requestdemo"),
+    path('signupapi/',views.SignupApi,name="signupapi")
 ]
