@@ -1,6 +1,7 @@
 # CBT-SOFTWARE
 # How To Run
 ------------------------------------------------------------------------
+- clone the repo `       `
 - Install dependency with `pip install -r requirements.txt`
 - run django make migrations `python manage.py makemigrations`
 - run django migrations `python manage.py migrations`
