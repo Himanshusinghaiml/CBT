@@ -6,7 +6,7 @@
 - run your pythonenv  `pythonenv\scripts\activate.bat`
 - Install dependency with `pip install -r requirements.txt`
 - run django make migrations `python manage.py makemigrations`
-- run django migrations `python manage.py migrations`
+- run django migrate `python manage.py migrate`
  
 - run django server with `python manage.py runserver`
 - Test the API as follows
