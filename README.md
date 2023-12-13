@@ -1,16 +1,18 @@
 # CBT-SOFTWARE
 # How To Run
 ------------------------------------------------------------------------
-- clone the repo `       `
+- clone the repo `  https://github.com/Himanshusinghaiml/CBT.git     `
+- navigate your directory or open in cmd or terminal ` python -m venv pythonenv`
+- run your pythonenv  `pythonenv\scripts\activate.bat`
 - Install dependency with `pip install -r requirements.txt`
 - run django make migrations `python manage.py makemigrations`
 - run django migrations `python manage.py migrations`
-- create django superuser with `python manage.py createsuperuser`
+ 
 - run django server with `python manage.py runserver`
 - Test the API as follows
 
 - Sign up the user with `signup` API first and get the token
-- [Online Examination System](https://www.linkedin.com/in/akashanand6353/)implemented as the final project for my Computer Engineering Bachelor's Degree.
+- [Online Examination System](https://www.linkedin.com/in/Himanshusinghaiml/)implemented as the final project for my Computer Engineering Bachelor's Degree.
 
 ## Table of Content
 * [Demo](#demo)
@@ -69,6 +71,6 @@
 The backend interface of this project was inspired by [Himanshu singh, Akash Anand] 
 
 ## <a name="feedback"></a> Feedback
-Any questions or suggestions? Notice any bugs or glitches? Feel free to send me on [email](himanshusingh945443@gmail.com) and (9765akashanand@gmail.com)
+Any questions or suggestions? Notice any bugs or glitches? Feel free to send me on [email] (himanshusingh945443@gmail.com) and (9765akashanand@gmail.com)
 
 ## <a name="author"></a> Author 
